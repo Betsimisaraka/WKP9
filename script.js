@@ -1,13 +1,13 @@
 const listElement = document.querySelector('.movie_lists')
-const proxy = 'https://ghibliapi.herokuapp.com/films';
+const url = 'https://ghibliapi.herokuapp.com/films';
 
 async function fetchMovies() {
-    const res = await fetch(`${proxy}`);
+    const res = await fetch(`${url}`);
     const data = await res.json();
     return data;
 }
 
-async function fetchAndDisplay() {
+async function handleMovies() {
     const movies = await fetchMovies();
     displayMovies(movies);
 }
@@ -30,7 +30,7 @@ function displayMovies(movies) {
     console.log(html);
 }
 
-fetchAndDisplay();
+handleMovies();
 
 //const listElement = document.querySelector('.movie_lists')
 
